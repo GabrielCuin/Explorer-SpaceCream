@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgc-body: #eff1ff;
+  --bgc-header: #8e9aaf;
+  --bgc-title: #cbc0d3;
+  --bgc-card-text: #feeafa;
+
+  --ff-title: "Staatliches", sans-serif;
+  --ff-text: "Palanquin", sans-serif;
+  --ff-text-desktop: "Roboto", sans-serif;
+  --ff-text-footer: "Open Sans", sans-serif;
+
+  --fc-title: white;
+  --fc-text: #23053a;
+  --fc-text-card: #4a4e69;
+
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bgc-body);
+  font-family: var(--ff-title);
+  font-size: 2rem;
+}
+
+body::before {
+  content: "";
+  width: 100%;
+  height: 30rem;
+  background: var(--bgc-header);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: topdown 800ms ease-in;
+}
+
+header {
+  height: 28rem;
+  text-align: center;
+}
+
+header img {
+  margin-top: 3.2rem;
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.8));
+  animation: topdown 800ms ease-in;
+  transition: transform 2s;
+}
+
+header h1 {
+  text-align: center;
+  color: var(--fc-title);
+  font-weight: 400;
+  font-size: var(--fs-title);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  animation: topdown 800ms ease-in;
+}
+
+header p {
+  width: 30.5rem;
+  font-family: var(--ff-text);
+  line-height: 2rem;
+  padding: 1.5rem;
+  animation: topdown 800ms;
+  margin: 5rem auto 6rem;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 124rem;
+}
+
+.card-wrapper {
+  display: grid;
+  gap: 3.2rem;
+  margin: 24rem auto 12rem;
+  max-width: 32rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  animation: downtop;
+  animation-duration: 800ms;
+}
+
+.card:nth-child(odd) {
+  height: 25rem;
+}
+
+.card:nth-child(even) {
+  height: 45rem;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  object-fit: cover;
+  transition: ALL 0.5s;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.caption {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  background-color: var(--bgc-card-text);
+  padding: 0 2.3rem;
+  border-radius: 2rem;
+  text-align: center;
+  animation: topdown;
+  animation-duration: 800ms;
+  animation-delay: 350ms;
+  animation-fill-mode: backwards;
+}
+
+.caption p {
+  font-family: var(--ff-title);
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+  color: var(--fc-text-card);
+}
+
+footer {
+  display: none;
+  font-family: var(--ff-text-footer);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 4.6rem;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 2.8rem;
+  color: #4a4e69;
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 720px) {
+  body::before {
+    display: none;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  header {
+    height: 100%;
+    background: var(--bgc-header);
+    color: #ffffff;
+  }
+
+  .card-wrapper {
+    grid-template-columns: 1fr 1fr;
+    margin: 5rem auto 5rem;
+    max-width: 40rem;
+  }
+
+  .card:nth-child(even),
+  .card:nth-child(odd) {
+    height: 40vh;
+  }
+
+  .caption {
+    display: none;
+  }
+
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "A B C"
+      "D B E"
+      "D F E";
+    max-width: 100%;
+    padding: 5rem;
+  }
+
+  .card:nth-child(1) {
+    grid-area: A;
+  }
+
+  .card:nth-child(2) {
+    grid-area: B;
+  }
+
+  .card:nth-child(3) {
+    grid-area: C;
+  }
+
+  .card:nth-child(4) {
+    grid-area: D;
+  }
+
+  .card:nth-child(5) {
+    grid-area: F;
+  }
+
+  .card:nth-child(6) {
+    grid-area: E;
+  }
+
+  .card:nth-child(1),
+  .card:nth-child(3),
+  .card:nth-child(5) {
+    width: 22rem;
+    height: 15rem;
+  }
+
+  .card:nth-child(2),
+  .card:nth-child(4),
+  .card:nth-child(6) {
+    width: 22rem;
+    height: 35rem;
+  }
+}
