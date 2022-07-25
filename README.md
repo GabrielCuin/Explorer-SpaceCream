@@ -1,8 +1,8 @@
-# Desafio - stage 03 - Desafio 03
+# Explorer - stage 03 - Challenger 03
 
 ![send email](/images/app.jpeg)
 
-# Tecnologias usadas
+# Technology used
 
 - HTML
 - CSS

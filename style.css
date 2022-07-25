@@ -113,7 +113,7 @@ main {
   opacity: 0.8;
 }
 
-.caption {
+.text {
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;
@@ -127,7 +127,7 @@ main {
   animation-fill-mode: backwards;
 }
 
-.caption p {
+.text p {
   font-family: var(--ff-title);
   line-height: 3.4rem;
   letter-spacing: 0.05em;
@@ -198,7 +198,7 @@ footer a {
     height: 40vh;
   }
 
-  .caption {
+  .text {
     display: none;
   }
 
